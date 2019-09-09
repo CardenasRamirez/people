@@ -18,5 +18,19 @@ namespace people
             conn = new SQLiteConnection(dbPath);
             conn.CreateTable<person>();
         }
+        public void CreatePerson(person newPerson)
+        {
+            int result;
+            result = conn.Insert(newPerson);
+            if (result == 1)
+            {
+                StatusMessage = $"{result} Registros agregados [Nombre: " + $"{newPerson.Name}, ID {newPerson.Id}]";
+            }
+            else
+            {
+                StatusMessage = "Registros no insertados";
+            }
+
+        }
     }
 }

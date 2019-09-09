@@ -6,7 +6,7 @@ using SQLite;
 namespace people.Models
 {
     [Table("Tbl_People")]
-    class person
+    public class person
     {
         [PrimaryKey, AutoIncrement]
         public int Id{ get; set;}
