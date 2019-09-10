@@ -13,5 +13,14 @@ namespace people
         {
             InitializeComponent();
         }
+        void OnNewButtonClicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }

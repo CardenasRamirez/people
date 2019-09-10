@@ -3,12 +3,41 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:people"
              x:Class="people.MainPage">
+    <Grid Padding="5" RowSpacing="1" ColumnSpacing="1"
+          BackgroundColor="Default">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-    </StackLayout>
+        <Entry x:Name="EntryPersonName" Grid.Row="0" Grid.Column="0"
+               Placeholder="Enter name"/>
+
+        <Button Text="Add Person"
+                Grid.Row="1" Grid.Column="0" Clicked="OnNewButtonClicked"/>
+
+        <Label x:Name="lblStatusMessage" Grid.Row="2"/>
+
+        <Button Text="Get all People" Grid.Row="3" Clicked="Button_Clicked"/>
+
+        <ListView x:Name="PeopleListView" Grid.Row="4">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell Height="30">
+                        <StackLayout Padding="5">
+                            <Label Text="{Binding Name}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </Grid>
 
 </ContentPage>
