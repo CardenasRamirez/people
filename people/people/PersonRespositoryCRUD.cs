@@ -32,5 +32,10 @@ namespace people
             }
 
         }
+
+        public List<person> GetAllPeople()
+        {
+            return conn.Table<person>().ToList();
+        }
     }
 }
